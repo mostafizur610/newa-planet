@@ -36,9 +36,108 @@
     <!-- Navbar Section end-->
 
     <main>
-        <h1 class="text-center pt-5">Welcome To My Blogs</h1>
+        <h1 class="text-center pt-5">Frequently asked question </h1>
+        <p class="text-center pb-4">Let us begin with the most important question in JavaScript</p>
         <section>
+            <div class="accordion" id="accordionExample">
+                <!-- accordion 01 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Difference between var, let and const keywords in JavaScript?
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            1.a) The scope of a var variable is functional scope. b) The scope of a let variable is
+                            block scope. c) The scope of a const variable is block scope. 2.a) Var can be updated and
+                            re-declared into the scope. b) Let can be updated but cannot be re-declared into the scope.
+                            c) Const cannot be updated or re-declared into the scope. 3.a) Var can be declared without
+                            initialization. b) Let can be declared without initialization. c) Const cannot be declared
+                            without initialization.
+                        </div>
+                    </div>
+                    <!-- accordion 02 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Regular vs Arrow Function-
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                An arrow function is also known as the fat arrow function. It is a new feature
+                                introduced in ES6 that is a more concise syntax for writing function expressions. Both
+                                regular JavaScript functions and arrow functions work in a similar manner but there are
+                                some differences between them. Let's see the differences below: -
+                                <br><br>
+                                1. Syntax. <br>
+                                2. Arguments binding. <br>
+                                3. Use of this keyword. <br>
+                                4. Using a new keyword. <br> <br>
+                                this value inside a regular function is dynamic and depends on how the function is
+                                invoked. But this inside the arrow function is bound lexically and equals to this of the
+                                outer function. Fat arrow methods always bind this a value to the class instance.
 
+                            </div>
+                        </div>
+                    </div>
+                    <!-- accordion 03 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                .forEach(), .map(), .filter() .... What's the difference?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <strong>.forEach()</strong>, is used to execute the same code on every element in an
+                                array but does not change the array and it returns undefined. <br>
+                                <strong>Example</strong><br><code>let food = ['mango','rice','pepper','pear'];<br>
+                                    food.forEach(function(foodItem){<br> console.log('I want to eat '+foodItem);<br>
+                                    });</code><br>
+                                <strong>.map()</strong> executes the same code on every element in an array and returns
+                                a new array with the updated elements.<br><strong>Example</strong><br><code>let cost = [100,400,300,700];<br>
+                                    let newCost = cost.map(function(costItem){<br> return costItem / 10;<br>
+                                    });<br>
+                                    console.log(newCost);</code><br> <strong>.filter()</strong> checks every element
+                                in an array to see if it meets a certain criteria and returns a new array with the
+                                elements that return truthy for the criteria.<br><strong>Example</strong><br><code>let cost = [100,400,50,40,700];<br>
+                                    let smallCost = cost.filter(function(costItem){<br> return costItem < 200<br>
+                                    });<br>
+                                    console.log(smallCost);</code>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- accordion 04 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                Why use template strings?
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                Template literals are sometimes informally called template strings, because they are
+                                used
+                                most commonly for string interpolation (to create strings by doing substitution of
+                                placeholders). However, a tagged template literal may not result in a string; it can be
+                                used
+                                with a custom tag function to perform whatever operations you want on the different
+                                parts of
+                                the template literal.
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </section>
     </main>
 
