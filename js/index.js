@@ -29,27 +29,44 @@ const loadCategoryDetails = async (category_id) => {
 
 
 const displayCategorieDetails = async categoryData => {
-    console.log('categoryData', categoryData);
+    // console.log('categoryData', categoryData);
 
     const categoryDetails = document.getElementById('category-details');
+    categoryDetails.innerHTML = '';
     categoryData.forEach(cat => {
-        console.log('cat', cat)
+        // console.log('cat', cat)
         const catDiv = document.createElement('div');
         catDiv.classList.add('row');
 
         catDiv.innerHTML = `
-        <div class="card mb-3" style="max-width: 540px;">
+        <div class="card mb-3 container">
                     <div class="row g-0">
             <div class="col-md-4">
             <img src="${cat.thumbnail_url}" class="img-fluid rounded-start" alt="...">
            </div>
         <div class="col-md-8">
             <div class="card-body">
-               <h5 class="card-title">Card title</h5>
-               <p class="card-text">This is a wider card with supporting text below as a natural
-               lead-in to additional content. This content is a little bit longer.
-               </p>
-               <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+               <h5 class="card-title">"${cat.title}" </h5>
+               <p class="card-text">"${cat.details}"</p>
+
+        <div class="d-flex justify-content-between">             
+               <div class="d-flex justify-content-between">
+               <img src="${cat.author.img}" class="rounded-circle img-author" alt="">
+               <div>
+               <p class="card-text"><small class="text-muted">${cat.author.name}</small></p>
+               <p class="card-text"><small class="text-muted">${cat.author.published_date}</small></p>
+        </div>
+
+</div>
+            
+         <p class="card-text">${cat.total_view} M</p>
+        <button class="btn btn-primary">Show Details</button>
+        </div>
+        <div>
+        
+    </div>
+
+              
            </div>
         </div>
         </div>
@@ -57,21 +74,10 @@ const displayCategorieDetails = async categoryData => {
 
         `;
 
-        categoryDetails.appendChild(document.createElement('div'));
         categoryDetails.appendChild(catDiv);
 
 
 
     })
-
-
-
-
-    // category.forEach(category => {
-
-
-
-    // })
-
 }
 loadCategories();
