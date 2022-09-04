@@ -13,19 +13,26 @@ const loadCategories = async () => {
 
 
 const displayCategories = categories => {
+
     const categoriesContainer = document.getElementById('categories-container');
+
     categories.forEach(category => {
         const categoryDiv = document.createElement('div');
         categoryDiv.classList.add('category');
         categoryDiv.innerHTML = `
              <button onclick="loadCategoryDetails('${category.category_id}')" class="btn btn-link text-decoration-none">${category.category_name}</button>
-        `;
+             `;
+
+
         categoriesContainer.appendChild(categoryDiv);
+
     })
+
 }
 
 
 const loadCategoryDetails = async (category_id) => {
+    toggleLoader(true);
     const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`;
     const res = await fetch(url);
     const data = await res.json();
@@ -41,7 +48,7 @@ const displayCategorieDetails = async categoryData => {
     // console.log('totalCat', totalCat);
     const totalLength = document.getElementById('total-length');
     totalLength.innerHTML = `
-    <p class="text-center p-4">${totalCat}</p>
+    <h4 class="text-center p-4 text-success text-warning">${totalCat}</h4>
 `;
     const categoryDetails = document.getElementById('category-details');
     categoryDetails.innerHTML = '';
@@ -74,6 +81,7 @@ const displayCategorieDetails = async categoryData => {
             
          <p class="card-text">${cat.total_view} Views</p>
         <button onclick="loadnNewsDetails('${cat._id}')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Show Details</button>
+        
         </div>
         <div>
         
@@ -86,12 +94,13 @@ const displayCategorieDetails = async categoryData => {
                 </div>
 
         `;
-
         categoryDetails.appendChild(catDiv);
 
 
 
+
     })
+    toggleLoader(false);
 }
 
 const loadnNewsDetails = async news_id => {
@@ -112,6 +121,15 @@ const dispayLoadNewsDetails = news => {
     <p>${news.author.name ? news.author.name : 'no author found'
         }</p>
     `;
+}
+const toggleLoader = isLoading => {
+    const loaderSection = document.getElementById('loder')
+    if (isLoading) {
+        loaderSection.classList.remove('d-none');
+    }
+    else {
+        loaderSection.classList.add('d-none');
+    }
 }
 
 loadCategories();
