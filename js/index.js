@@ -60,7 +60,7 @@ const displayCategorieDetails = async categoryData => {
 </div>
             
          <p class="card-text">${cat.total_view} M</p>
-        <button class="btn btn-primary">Show Details</button>
+        <button onclick="loadnNewsDetails('${cat._id}')" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Show Details</button>
         </div>
         <div>
         
@@ -80,4 +80,25 @@ const displayCategorieDetails = async categoryData => {
 
     })
 }
+
+const loadnNewsDetails = async news_id => {
+    const url = `https://openapi.programming-hero.com/api/news/${news_id}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    dispayLoadNewsDetails(data.data[0]);
+}
+
+const dispayLoadNewsDetails = news => {
+    // console.log(news)
+    const modalTitle = document.getElementById('newsModalLabel');
+    modalTitle.innerText = news.title;
+    const newsDetails = document.getElementById('news-details');
+    newsDetails.innerHTML = `
+    <img class="w-100 py-3" src="${news.thumbnail_url}" alt="">
+    <p>${news.details}</p>
+    <p>${news.author.name ? news.author.name : 'no author found'
+        }</p>
+    `;
+}
+
 loadCategories();
